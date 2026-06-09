@@ -10,7 +10,7 @@ MONGO_URI = os.getenv("MONGO_URI", "mongodb://localhost:27017")
 client = AsyncIOMotorClient(MONGO_URI)
 
 # Pick the database
-db = client["support_crm"]
+db = client["desksync_crm"]
 
 # Two collections:  tickets  and  notes
 tickets_collection = db["tickets"]

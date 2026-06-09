@@ -11,6 +11,24 @@ dist
 dist-ssr
 *.local
 
+# Python
+backend/venv/
+venv/
+__pycache__/
+*.pyc
+
+# Environment variables
+.env
+backend/.env
+
+# Node
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# IDE
 .vscode/*
 !.vscode/extensions.json
 .idea
@@ -20,4 +38,3 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-.env
