@@ -1,6 +1,6 @@
 # DeskSync CRM
 
-DeskSync CRM is a full-stack customer relationship management and ticket management application built with React, TypeScript, FastAPI, and MongoDB.
+DeskSync CRM is a full-stack customer relationship management and ticket management application built with React, JavaScript , FastAPI, and MongoDB.
 
 ## Features
 
@@ -51,7 +51,7 @@ npm run dev
 Create a `.env` file and configure:
 
 ```env
-MONGO_URI=your_mongodb_connection_string
+MONGO_URI=__
 ```
 
 ## License
