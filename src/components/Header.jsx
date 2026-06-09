@@ -1,4 +1,5 @@
-import { Headphones, Plus } from "lucide-react";
+import { LayoutDashboard, Plus } from "lucide-react";
+
 
 export default function Header({ onNavigate, currentPage }) {
   return (
@@ -8,7 +9,7 @@ export default function Header({ onNavigate, currentPage }) {
           onClick={() => onNavigate("list")}
           className="flex items-center gap-2 text-teal-600 font-semibold text-lg hover:text-teal-700 transition-colors"
         >
-          <Headphones size={20} strokeWidth={2} />
+          <LayoutDashboard size={20} strokeWidth={2} />
           <span>DeskSync</span>
         </button>
 
