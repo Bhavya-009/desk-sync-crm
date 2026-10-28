@@ -6,7 +6,8 @@ from typing import List, Optional
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 
-from database import tickets_collection, notes_collection
+
+from database import client, tickets_collection, notes_collection
 from models import (
     CreateTicketRequest,
     UpdateTicketRequest,
@@ -18,10 +19,13 @@ from models import (
 # App setup
 app = FastAPI(title="Support CRM API", version="1.0.0")
 
-# Allow the React dev server (and any other origin) to call this API.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=[
+        "https://desk-sync-crm.vercel.app",
+        "http://localhost:5173",
+    ],
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -187,4 +191,8 @@ async def update_ticket(ticket_id: str, body: UpdateTicketRequest):
 
 @app.get("/health")
 async def health():
-    return {"status": "ok"}
+    try:
+        await client.admin.command("ping")
+        return {"status": "ok", "database": "connected"}
+    except Exception:
+        raise HTTPException(status_code=503, detail="Database unavailable")
